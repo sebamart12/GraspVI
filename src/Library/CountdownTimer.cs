@@ -10,7 +10,7 @@ namespace Full_GRASP_And_SOLID
 
     public class CountdownTimer
     {
-        private TimerClient client;
+        public TimerClient client;
 
         private Timer timer;
 

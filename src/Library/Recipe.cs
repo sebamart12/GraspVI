@@ -11,6 +11,7 @@ namespace Full_GRASP_And_SOLID
 {
     public class Recipe : IRecipeContent // Modificado por DIP
     {
+        public bool Cooked=false;
         // Cambiado por OCP
         private IList<BaseStep> steps = new List<BaseStep>();
 
@@ -61,6 +62,32 @@ namespace Full_GRASP_And_SOLID
             }
 
             return result;
+        }
+
+        public int GetCookTime()
+        {
+            int suma=0;
+            foreach(BaseStep i in steps)
+            {
+                suma=suma+i.Time;
+            }
+            return suma;
+        }
+        public void Cook()
+        {
+            //Creator
+            if (!this.Cooked)
+            {
+                TimerClient client = new Time(this);
+                CountdownTimer countdown=new CountdownTimer();
+                countdown.Register(this.GetCookTime(),client);
+            }
+                
+        }
+
+        public void CookedToTrue()
+        {
+            this.Cooked=true;
         }
     }
 }
