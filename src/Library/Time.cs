@@ -7,7 +7,7 @@ namespace Full_GRASP_And_SOLID
 {
     public class Time : TimerClient
     {
-
+        //Ley de Demeter y ISP
         public Recipe Recipe;
         public Time(Recipe recipe)
         {
