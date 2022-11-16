@@ -11,7 +11,16 @@ namespace Full_GRASP_And_SOLID
 {
     public class Recipe : IRecipeContent // Modificado por DIP
     {
-        public bool Cooked=false;
+        private bool cooked = false;
+        public bool Cooked 
+        {
+            get
+            {
+                return this.cooked;
+            }
+        
+        
+        }
         // Cambiado por OCP
         private IList<BaseStep> steps = new List<BaseStep>();
 
@@ -87,7 +96,7 @@ namespace Full_GRASP_And_SOLID
 
         public void CookedToTrue()
         {
-            this.Cooked=true;
+            this.cooked=true;
         }
     }
 }
